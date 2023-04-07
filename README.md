@@ -1,12 +1,10 @@
-## MLOps for SageMaker Endpoint Deployment
+## Layout of the SageMaker ModelDeploy Project
 
-This is a sample code repository for demonstrating how you can organize your code for deploying an realtime inference Endpoint infrastructure. This code repository is created as part of creating a Project in SageMaker. 
+This is the code repository as part of a Project in SageMaker as the CD part of the MLOps, for deploying an realtime inference Endpoint infrastructure. 
 
-This code repository has the code to find the latest approved ModelPackage for the associated ModelPackageGroup and automaticaly deploy it to the Endpoint on detecting a change (`build.py`). This code repository also defines the CloudFormation template which defines the Endpoints as infrastructure. It also has configuration files associated with `staging` and `prod` stages. 
+This code repository has the code to find the latest approved ModelPackage (for simplicy, I let CI part auto approve the model) for the associated ModelPackageGroup and automaticaly deploy it to the Endpoint on detecting a change (`build.py`). This code repository also defines the CloudFormation template which defines the Endpoints as infrastructure. It also has configuration files associated with `staging` and `prod` stages. 
 
 Upon triggering a deployment, the CodePipeline pipeline will deploy 2 Endpoints - `staging` and `prod`. After the first deployment is completed, the CodePipeline waits for a manual approval step for promotion to the prod stage. You will need to go to CodePipeline AWS Managed Console to complete this step.
-
-You own this code and you can modify this template to change as you need it, add additional tests for your custom validation. 
 
 A description of some of the artifacts is provided below:
 
